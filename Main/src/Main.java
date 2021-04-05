@@ -18,9 +18,6 @@ public class Main {
     }
 
     public static void startKnapsack() {
-        System.out.println("----- Start Knapsack -----");
-        System.out.println();
-
         Item computer = new Item("Computer", 9, 7);
         Item phone = new Item("Phone", 7, 3);
         Item bottle = new Item("Bottle", 4, 4);
@@ -29,10 +26,7 @@ public class Main {
         Item headphone = new Item("Headphone", 3, 4);
         Item shoes = new Item("Shoes", 7, 6);
 
-        Knapsack knapsack = new Knapsack(100, 0.7, 0.01, 20, new Item[]{computer,phone,bottle,jacket,keys,headphone,shoes});
+        Knapsack knapsack = new Knapsack(200, 200, 0.7, 0.01, 20, new Item[]{computer,phone,bottle,jacket,keys,headphone,shoes});
         knapsack.start();
-
-        System.out.println();
-        System.out.println("----- End Knapsack -----");
     }
 }

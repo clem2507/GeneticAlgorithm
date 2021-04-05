@@ -3,6 +3,7 @@ import java.util.Random;
 
 public class Knapsack {
 
+    private int stopCondition;
     private int populationSize;
     private int totalGenerationNumber;
     private double crossoverRate;
@@ -13,7 +14,8 @@ public class Knapsack {
     private Bag bag;
     private Random random;
 
-    public Knapsack(int populationSize, double crossoverRate, double mutationRate, double rucksackCapacity, Item[] itemList) {
+    public Knapsack(int stopCondition, int populationSize, double crossoverRate, double mutationRate, double rucksackCapacity, Item[] itemList) {
+        this.stopCondition = stopCondition;
         this.populationSize = populationSize;
         this.crossoverRate = crossoverRate;
         this.mutationRate = mutationRate;
@@ -24,9 +26,11 @@ public class Knapsack {
     }
 
     public void start() {
+        System.out.println("----- Start Knapsack -----");
+        System.out.println();
         initializePopulation();
         int i = 0;
-        while (i<100) {
+        while (i<stopCondition) {
             totalGenerationNumber++;
             tournamentSelection();
             System.out.println("--> best population genotype = " + getBestItemInPopulation().getGenotype());
@@ -40,7 +44,8 @@ public class Knapsack {
         }
         System.out.println("--> number of generations = " + totalGenerationNumber);
         System.out.println();
-        System.out.println("--> you should bring your " + getBestItemInList() + "in your " + bag.getType());
+        System.out.println("--> you should bring in your " + getBag().getType() + ":\n\n" + getBestItemInList());
+        System.out.println("----- End Knapsack -----");
     }
 
     public void initializePopulation() {
@@ -154,9 +159,13 @@ public class Knapsack {
         String out = "";
         for (int i = 0; i < getBestItemInPopulation().getGenotype().length(); i++) {
             if (getBestItemInPopulation().getGenotype().charAt(i) == '1') {
-                out+=itemList[i].getName() + ", ";
+                out += "\t" + itemList[i].getName() + "\n";
             }
         }
         return out;
+    }
+
+    public Bag getBag() {
+        return bag;
     }
 }
