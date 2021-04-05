@@ -1,12 +1,21 @@
 public class Item {
 
     private String genotype;
+    private String name;
     private double fitness;
+    private int value;
+    private int weight;
     private int rangeStart;
     private int rangeEnd;
 
     public Item(String genotype) {
         this.genotype = genotype;
+    }
+
+    public Item(String name, int value, int weight) {
+        this.name = name;
+        this.value = value;
+        this.weight = weight;
     }
 
     public String getGenotype() {
@@ -19,6 +28,18 @@ public class Item {
 
     public double getFitness() {
         return fitness;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getValue() {
+        return value;
+    }
+
+    public int getWeight() {
+        return weight;
     }
 
     public void setRangeStart(int rangeStart) {
