@@ -3,8 +3,8 @@ public class Item {
     private String genotype;
     private String name;
     private double fitness;
+    private double weight;
     private int value;
-    private int weight;
     private int rangeStart;
     private int rangeEnd;
 
@@ -12,7 +12,7 @@ public class Item {
         this.genotype = genotype;
     }
 
-    public Item(String name, int value, int weight) {
+    public Item(String name, int value, double weight) {
         this.name = name;
         this.value = value;
         this.weight = weight;
@@ -38,7 +38,7 @@ public class Item {
         return value;
     }
 
-    public int getWeight() {
+    public double getWeight() {
         return weight;
     }
 

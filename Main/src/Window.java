@@ -95,7 +95,7 @@ public class Window extends Application {
         });
 
         addItemButton.setOnAction(t -> {
-            itemsList.add(new Item(objNameTextField.getText(), Integer.parseInt(objValueTextField.getText()), Integer.parseInt(objWeightTextField.getText())));
+            itemsList.add(new Item(objNameTextField.getText(), Integer.parseInt(objValueTextField.getText()), Double.parseDouble(objWeightTextField.getText())));
             System.out.println("Item " + objNameTextField.getText() + " with a value of " + objValueTextField.getText() + " and a weight of " + objWeightTextField.getText() + " added successfully");
             objNameTextField.setText("");
             objValueTextField.setText("");
